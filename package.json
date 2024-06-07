@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --config ./config/vite/vite.config.ts",
+    "start": "vite --config ./config/vite/vite.config.ts",
     "build": "tsc && vite build --config ./config/vite/vite.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview --config ./config/vite/vite.config.ts"
