@@ -35,6 +35,7 @@ export const Dashboard = () => {
     const audioElement = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration,setDuration] = useState("0:00")
+    const [durationMax,setDurationMax] = useState(100)
     const [currTime, setCurrTime] = useState({
         min: "0",
         sec: "0",
@@ -75,6 +76,7 @@ export const Dashboard = () => {
                         const index = e[indexE]
                         const find = rows[index]
                         if(find){
+                            setDurationMax(find.file.duration)
                             setDuration(readableDuration(find.file.duration))
                             setActive((prev) => {
                                 prev?.pause()
@@ -102,6 +104,7 @@ export const Dashboard = () => {
                     setIsPlaying={setIsPlaying}
                     SkipSong={() => {}}
                     duration={duration}
+                    durationMax={durationMax}
                     currTime={currTime}
                     seconds={seconds}
                     active={active}

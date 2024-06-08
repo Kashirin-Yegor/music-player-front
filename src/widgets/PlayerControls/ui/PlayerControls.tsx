@@ -14,6 +14,7 @@ interface IPlayerControls{
     isPlaying:boolean
     setIsPlaying:Dispatch<SetStateAction<boolean>>
     duration:string
+    durationMax:number
     currTime:{min:string,sec:string}
     seconds:number
     active:HTMLAudioElement | null
@@ -21,7 +22,7 @@ interface IPlayerControls{
 }
 
 export const PlayerControls = (props:IPlayerControls) => {
-    const {SkipSong,initActive,setIsPlaying,isPlaying,duration,currTime,seconds,active} = props
+    const {SkipSong,initActive,setIsPlaying,isPlaying,duration,currTime,seconds,active,durationMax} = props
     const [time,setTime] = useState(0)
     useEffect(()=>{
         setTime(seconds)
@@ -53,7 +54,7 @@ export const PlayerControls = (props:IPlayerControls) => {
                 if(active && active?.currentTime){
                     active.currentTime = Number(e.target.value)
                 }
-            }} className={cls.Range} type="range" value={time} min={0} max={Number(duration) * 1000}/>
+            }} className={cls.Range} type="range" value={time} min={0} max={durationMax}/>
             <div className={cls.Time}>{duration}</div>
         </div>
     );
