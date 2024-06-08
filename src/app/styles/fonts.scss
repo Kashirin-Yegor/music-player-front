@@ -1,0 +1,19 @@
+@mixin font($family, $path, $weight, $style: normal) {
+  @font-face {
+      font-family: $family;
+      font-weight: $weight;
+      font-style: $style;
+      font-display: swap;
+      src:
+          url('#{$path}.woff2') format('woff2'),
+          url('#{$path}.woff') format('woff'),
+          url('#{$path}.otf') format('opentype');
+  }
+}
+
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Regular', 300);
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Bold', 700);
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Medium', 400);
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Black', 900);
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Semibold', 600);
+@include font('SF Pro Display', 'shared/assets/fonts/SF Pro Display Heavy', 900);

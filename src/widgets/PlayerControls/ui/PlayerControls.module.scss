@@ -1,0 +1,54 @@
+.Container{
+  margin-top: auto;
+  //border: solid 1px red;
+  background-color: #333842;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 28px;
+}
+.PlayBtn{
+  background-color:var(--primary-color);
+  color: var(--text-color);
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  //background-color: transparent;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: all .3s;
+  opacity: 90%;
+  &:hover{
+    background-color:var(--primary-color);
+    opacity: 100%;
+  }
+}
+.Time{
+  color:var(--color);
+  opacity: 60%;
+  margin: 0 10px;
+}
+
+.Range{
+  width: 320px;
+  accent-color: var(--color);
+}
+
+.Active{
+  opacity: 100%;
+}
+
+.SkipBtn{
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  color: #898989;
+  transition: all .3s;
+  cursor: pointer;
+  &:hover{
+    color: white;
+  }
+}

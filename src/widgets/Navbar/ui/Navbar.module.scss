@@ -1,0 +1,47 @@
+.Navbar{
+  background-color: var(--background-color);
+  color: var(--color);
+  width: 100%;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+}
+
+.Links{
+  display: flex;
+  flex-direction: row;
+  margin: 0 4px;
+}
+
+.PartLink{
+  height: 20px;
+  margin: 0 2px;
+}
+
+.Link{
+  margin: 0 4px;
+  padding: 8px;
+  width: 120px;
+  border-radius: 4px;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  &:hover{
+    background-color: #E0E0E02B
+  }
+  &:hover:last-child{
+    background-color:transparent;
+  }
+  cursor: pointer;
+}
+
+.Active{
+  background-color: rgba(224, 224, 224, 0.17);
+}
+
+.Search{
+  input{
+    padding: 0 !important;
+    color: white !important;
+  }
+}

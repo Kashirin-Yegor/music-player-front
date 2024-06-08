@@ -1,0 +1,13 @@
+@import "./fonts";
+@import "./reset";
+@import "variables.scss";
+
+body {
+  font: var(--font-m);
+  background-color: var(--background-color);
+}
+
+.TableSelectRow-selected{
+  background-color: #414141 !important;
+}
+
