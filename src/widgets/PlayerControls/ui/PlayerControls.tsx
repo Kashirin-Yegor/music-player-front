@@ -17,7 +17,7 @@ interface IPlayerControls{
     currTime:{min:string,sec:string}
     seconds:number
     active:HTMLAudioElement | null
-    initActive:()=>Promise<boolean>
+    initActive:()=>boolean
 }
 
 export const PlayerControls = (props:IPlayerControls) => {
@@ -31,11 +31,10 @@ export const PlayerControls = (props:IPlayerControls) => {
             <button
                 className={classNames(cls.PlayBtn, {[cls.Active]: isPlaying}, [])}
                 onClick={() => {
-                    initActive().then((isActive:boolean) => {
-                        if(isActive) {
-                            setIsPlaying(!isPlaying)
-                        }
-                    })
+                    const isActive  = initActive()
+                    if(isActive) {
+                        setIsPlaying(!isPlaying)
+                    }
                 }}
             >
                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay}/>
