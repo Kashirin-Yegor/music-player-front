@@ -1,10 +1,12 @@
-tr{
+tbody > tr{
   transition: all .3s;
-  background-color: var(--background-color);
   cursor: pointer;
   &:hover{
     background-color: #575555;
   }
+}
+tr{
+  background-color: var(--background-color);
 }
 //tr:first-child{
 //  &:hover{
