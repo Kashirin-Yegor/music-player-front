@@ -43,7 +43,6 @@ export const Table = (props:ITable) => {
     const defaultColumnWidths = columns.filter((el) => el?.width).map((el) => {
         return ({ columnName: el.name, width: el.width })
     })
-    console.log("defaultColumnWidths",defaultColumnWidths)
     return (
         <Paper>
             <Grid

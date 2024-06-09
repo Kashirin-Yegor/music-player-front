@@ -87,15 +87,26 @@ export const PlayerControls = (props:IPlayerControls) => {
                         min={0}
                         max={100}
                         value={volume}
-                        onChange={(_, value) => setVolume(Number(value))}
+                        onChange={(_, value) => {
+                            setVolume(Number(value))
+                            if(active){
+                                active.volume = Number(value) / 100
+                            }
+                        }}
                     />
                 </div>}>
                 <button className={cls.SkipBtn} onClick={() => {
                     setPrevVolume(volume)
                     if (volume === 0) {
+                        if(active){
+                            active.volume = prevVolume / 100
+                        }
                         setVolume(prevVolume)
                     } else {
                         setVolume(0)
+                        if(active){
+                            active.volume = 0
+                        }
                     }
                 }}>
                     {volume === 0 ? <VolumeMute className={cls.Volume}/> : volume > 0 && volume <= 50 ?
