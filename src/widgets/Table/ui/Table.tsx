@@ -1,11 +1,19 @@
 import Paper from '@mui/material/Paper';
-import { Grid, Table as TableMui, TableHeaderRow,TableSelection } from '@devexpress/dx-react-grid-material-ui'
+import {
+    Grid,
+    Table as TableMui,
+    TableColumnResizing,
+    TableHeaderRow,
+    TableSelection
+} from '@devexpress/dx-react-grid-material-ui'
 import {Column, SelectionState, Table as TableGrid} from "@devexpress/dx-react-grid";
 import "./Table.module.scss"
 import {Dispatch,SetStateAction} from "react";
 import DataCellProps = TableGrid.DataCellProps;
 
-interface IColumns extends Column{}
+interface IColumns extends Column{
+    width?:number
+}
 interface IRows{}
 
 interface ITable{
@@ -32,6 +40,10 @@ export const Cell = (props:ICell) => {
 
 export const Table = (props:ITable) => {
     const {columns = [],rows = [],selection,setSelection} = props
+    const defaultColumnWidths = columns.filter((el) => el?.width).map((el) => {
+        return ({ columnName: el.name, width: el.width })
+    })
+    console.log("defaultColumnWidths",defaultColumnWidths)
     return (
         <Paper>
             <Grid
@@ -44,6 +56,7 @@ export const Table = (props:ITable) => {
                     onSelectionChange={setSelection}
                 />
                 <TableMui cellComponent={(props) => <Cell {...props} />} />
+                <TableColumnResizing columnWidths={defaultColumnWidths} />
                 <TableHeaderRow />
                 <TableSelection selectByRowClick highlightRow showSelectionColumn={false} />
             </Grid>
