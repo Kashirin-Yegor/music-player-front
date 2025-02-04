@@ -11,7 +11,6 @@
 
 ### 🛠 Installation & Running
 ```sh
-Копировать
 git clone https://github.com/Kashirin-Yegor/music-player-front.git
 cd music-player-front
 npm install
